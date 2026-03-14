@@ -41,7 +41,7 @@ User Prompt
 
 | Layer          | Technology                           |
 |----------------|--------------------------------------|
-| Frontend       | Next.js 14, TailwindCSS, Monaco      |
+| Frontend       | Next.js 15, TailwindCSS, Monaco      |
 | Backend        | Python 3.11+, FastAPI, SQLAlchemy    |
 | Database       | PostgreSQL, Redis                    |
 | AI             | OpenAI GPT-4 (multi-agent pipeline)  |
