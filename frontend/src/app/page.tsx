@@ -6,6 +6,7 @@ import { ProjectList } from "@/components/ProjectList";
 
 export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
+  const [promptValue, setPromptValue] = useState("");
 
   return (
     <main className="min-h-screen">
@@ -49,11 +50,13 @@ export default function Home() {
         {/* Main Prompt Input */}
         <div className="mt-10">
           <PromptInput
+            value={promptValue}
+            onChange={setPromptValue}
             onGenerate={async (prompt) => {
               setIsGenerating(true);
               try {
                 const response = await fetch(
-                  "http://localhost:8000/api/projects/generate",
+                  `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"}/projects/generate`,
                   {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -87,15 +90,7 @@ export default function Home() {
               <button
                 key={example}
                 className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-600 hover:border-primary-300 hover:text-primary-600"
-                onClick={() => {
-                  const input = document.querySelector<HTMLTextAreaElement>(
-                    "textarea"
-                  );
-                  if (input) {
-                    input.value = example;
-                    input.dispatchEvent(new Event("input", { bubbles: true }));
-                  }
-                }}
+                onClick={() => setPromptValue(example)}
               >
                 {example}
               </button>

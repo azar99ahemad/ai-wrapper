@@ -1,6 +1,12 @@
 """Core configuration for the AI Wrapper backend."""
 
+import secrets
+
 from pydantic_settings import BaseSettings
+
+
+def _default_secret_key() -> str:
+    return secrets.token_urlsafe(32)
 
 
 class Settings(BaseSettings):
@@ -27,7 +33,7 @@ class Settings(BaseSettings):
     sandbox_cpu_limit: float = 1.0
 
     # Auth
-    secret_key: str = "change-me-in-production"
+    secret_key: str = _default_secret_key()
     access_token_expire_minutes: int = 60
 
     # Deployment

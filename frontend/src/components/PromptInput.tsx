@@ -6,14 +6,20 @@ interface PromptInputProps {
   onGenerate: (prompt: string) => Promise<void>;
   isLoading?: boolean;
   placeholder?: string;
+  value?: string;
+  onChange?: (value: string) => void;
 }
 
 export function PromptInput({
   onGenerate,
   isLoading = false,
   placeholder = 'Describe the web application you want to build... e.g., "Build a job portal with admin panel and salary filter"',
+  value: controlledValue,
+  onChange: controlledOnChange,
 }: PromptInputProps) {
-  const [prompt, setPrompt] = useState("");
+  const [internalValue, setInternalValue] = useState("");
+  const prompt = controlledValue !== undefined ? controlledValue : internalValue;
+  const setPrompt = controlledOnChange || setInternalValue;
 
   const handleSubmit = async () => {
     if (!prompt.trim() || isLoading) return;
