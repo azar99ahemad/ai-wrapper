@@ -16,7 +16,10 @@ logging.basicConfig(
 
 app = FastAPI(
     title=settings.app_name,
-    description="AI SaaS platform that generates full web applications from natural language prompts",
+    description=(
+        "AI SaaS platform that generates full web applications "
+        "from natural language prompts"
+    ),
     version="0.1.0",
     docs_url="/docs",
     redoc_url="/redoc",

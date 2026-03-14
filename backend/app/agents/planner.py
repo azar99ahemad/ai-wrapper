@@ -7,7 +7,8 @@ from app.schemas.schemas import ProjectSpecification
 
 logger = logging.getLogger(__name__)
 
-SYSTEM_PROMPT = """You are an expert software architect. Given a user's description of a web application,
+SYSTEM_PROMPT = """You are an expert software architect. \
+Given a user's description of a web application,
 generate a detailed project specification in JSON format.
 
 Return ONLY valid JSON with this structure:

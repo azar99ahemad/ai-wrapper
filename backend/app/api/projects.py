@@ -12,11 +12,11 @@ from app.agents.orchestrator import PipelineOrchestrator
 from app.core.database import get_db
 from app.models.models import (
     AIGeneration,
+    Deployment,
     DeploymentStatus,
     Project,
     ProjectFile,
     ProjectStatus,
-    Deployment,
 )
 from app.schemas.schemas import (
     DeploymentResponse,

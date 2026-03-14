@@ -1,3 +1,10 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
 [project]
 name = "ai-wrapper-backend"
 version = "0.1.0"
@@ -12,12 +19,12 @@ dependencies = [
     "psycopg2-binary==2.9.10",
     "redis==5.2.1",
     "python-dotenv==1.0.1",
-    "pydantic==2.10.4",
+    "pydantic[email]==2.10.4",
     "pydantic-settings==2.7.1",
     "httpx==0.28.1",
     "docker==7.1.0",
     "openai==1.58.1",
-    "python-jose[cryptography]==3.3.0",
+    "python-jose[cryptography]==3.5.0",
     "passlib[bcrypt]==1.7.4",
     "python-multipart==0.0.20",
     "stripe==11.4.1",

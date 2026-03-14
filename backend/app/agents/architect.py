@@ -47,7 +47,10 @@ class ArchitectAgent(BaseAgent):
         """
         data, tokens = await self._call_openai_json(
             system_prompt=SYSTEM_PROMPT,
-            user_prompt=f"Design the file structure for this project:\n{json.dumps(spec.model_dump(), indent=2)}",
+            user_prompt=(
+                "Design the file structure for this project:\n"
+                f"{json.dumps(spec.model_dump(), indent=2)}"
+            ),
             temperature=0.5,
             max_tokens=4096,
         )
