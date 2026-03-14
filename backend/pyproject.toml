@@ -1,0 +1,43 @@
+[project]
+name = "ai-wrapper-backend"
+version = "0.1.0"
+description = "AI SaaS platform backend - generates full web applications from natural language prompts"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.34.0",
+    "sqlalchemy==2.0.36",
+    "alembic==1.14.1",
+    "asyncpg==0.30.0",
+    "psycopg2-binary==2.9.10",
+    "redis==5.2.1",
+    "python-dotenv==1.0.1",
+    "pydantic==2.10.4",
+    "pydantic-settings==2.7.1",
+    "httpx==0.28.1",
+    "docker==7.1.0",
+    "openai==1.58.1",
+    "python-jose[cryptography]==3.3.0",
+    "passlib[bcrypt]==1.7.4",
+    "python-multipart==0.0.20",
+    "stripe==11.4.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.4",
+    "pytest-asyncio==0.25.0",
+    "httpx==0.28.1",
+    "ruff==0.8.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
